@@ -23,7 +23,7 @@ class LivreSeeder extends Seeder
                 'idauteur' => 2,
                 'idgenre' => 3,
                 'idtag' => 7,
-                'resume' => Str::random(20)
+                'resume' => Str::random(100)
             ],[
                 'titre' => Str::random(5),
                 'image' => '2021010808512696552.jpg',
@@ -33,7 +33,7 @@ class LivreSeeder extends Seeder
                 'idauteur' => 4,
                 'idgenre' => 7,
                 'idtag' => 7,
-                'resume' => Str::random(20)
+                'resume' => Str::random(100)
             ],[
                 'titre' => Str::random(8),
                 'image' => '2021010808541463993.jpg',
@@ -43,7 +43,7 @@ class LivreSeeder extends Seeder
                 'idauteur' => 3,
                 'idgenre' => 9,
                 'idtag' => 8,
-                'resume' => Str::random(20)
+                'resume' => Str::random(100)
             ],[
                 'titre' => Str::random(7),
                 'image' => '2021010808583934801.jpg',
@@ -53,7 +53,7 @@ class LivreSeeder extends Seeder
                 'idauteur' => 6,
                 'idgenre' => 2,
                 'idtag' => 1,
-                'resume' => Str::random(20)
+                'resume' => Str::random(100)
             ],[
                 'titre' => Str::random(7),
                 'image' => '2021010809012057571.jpg',
@@ -63,7 +63,7 @@ class LivreSeeder extends Seeder
                 'idauteur' => 6,
                 'idgenre' => 3,
                 'idtag' => 4,
-                'resume' => Str::random(20)
+                'resume' => Str::random(100)
             ],[
                 'titre' => Str::random(7),
                 'image' => '2021010809072370877.jpg',
@@ -73,7 +73,7 @@ class LivreSeeder extends Seeder
                 'idauteur' => 5,
                 'idgenre' => 5,
                 'idtag' => 7,
-                'resume' => Str::random(20)
+                'resume' => Str::random(100)
             ]
         ]);
     }

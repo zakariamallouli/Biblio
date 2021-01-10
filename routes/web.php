@@ -13,16 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 /******************************************Client Routes******************************************/
-
-/******************************************Client Routes******************************************/
 Route::get('/', function () {
     return view('welcome');
 });
 
-/*Route::get('/livres', function () {
-    return view('listeLivre');
-});*/
-Route::get('/livre', 'HomeController@listelivre')->name('listelivre');
+Route::get('/livre', 'HomeController@listelivre')->name('listelivre')->middleware('verified');
+/******************************************Client Routes******************************************/
+
 
 /******************************************Admin Routes******************************************/
 Auth::routes(['verify' => true]);
