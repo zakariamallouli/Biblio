@@ -31,4 +31,10 @@ class HomeController extends Controller
         $arr['livres'] = Livre::all();
         return view('listelivre')->with($arr);
     }
+
+    public function rechercheLivre($auteur,$genre)
+    {
+        $arr['livres'] = Livre::all()->where('genre',$slug)->where('auteur',$auteur);
+        return view('listelivre')->with($arr);
+    }
 }
