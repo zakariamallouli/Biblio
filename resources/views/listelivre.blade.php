@@ -1,93 +1,145 @@
 @extends('layouts.client')
 @section('content')
-    <!-- Start: Page Banner -->
-    <section class="page-banner services-banner">
-        <div class="container">
-            <div class="banner-header">
-                <span class="underline center"></span>
+        <!-- Start: Page Banner -->
+        <section class="page-banner services-banner">
+            <div class="container">
+                <div class="banner-header">
+                    <h2>Livres & Media</h2>
+                    <span class="underline center"></span>
+                </div>
             </div>
-        </div>
-    </section>
-    <!-- End: Page Banner -->
+        </section>
+        <!-- End: Page Banner -->
 
-    <!-- Start: Products Section -->
-    <div id="content" class="site-content">
-        <div id="primary" class="content-area">
-            <main id="main" class="site-main">
-                <div class="books-full-width">
-                    <div class="container">
-                        <!-- Start: Search Section -->
-                        <section class="search-filters">
-                            <div class="filter-box mx-auto">
-                                <h3>
-                                    Que recherchez-vous à la bibliothèque?</h3>
-                                <form action="" method="get">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <select name="catalog" id="catalog" class="form-control">
-                                                <option selected="selected">Cherchez par Auteur</option>
-                                                @foreach ($livres as $l)
-                                                    <option value="{{$l->idauteur}}">{{$l->auteur['nom']}} {{$l->auteur['prenom']}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
+        <!-- Start: Products Section -->
+        <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    <div class="books-media-gird">
+                        <div class="container">
+                            <div class="row">
+                                <!-- Start: Search Section -->
+                                <section class="search-filters">
+                                    <div class="container">
+                                       
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <select name="category" id="category" class="form-control">
-                                                <option>Cherchez par Genre</option>
-                                                @foreach ($livres as $l)
-                                                    <option value="{{$l->idgenre}}">{{$l->genre['genre']}}</option>
-                                                @endforeach
-                                            </select>
+                                </section>
+                                <!-- End: Search Section -->
+
+                                <div class="row my-4">
+                                    <div class="col-md-12">
+                                        @if(session()->has('success'))
+                                        <div class="alert alert-success">
+                                            {{ session()->get('success') }}
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
                                         </div>
+                                    @endif
                                     </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <input class="form-control" type="submit" value="Recherche">
-                                        </div>
-                                    </div> 
-                                </form>
-                            </div>
-                            <div class="clear"></div>
-                        </section>
-                        <!-- End: Search Section -->
+                                </div>
                         
-                        <div class="booksmedia-fullwidth">
-                            <ul>
-                                @foreach ($livres as $l)
-                                <li>
-                                    <figure>
-                                        <a href="#"><img src="{{ asset('livres/'.$l->image) }}" alt="Book"></a>
-                                        <figcaption>
-                                            <header>
-                                                <h4><a href="#">{{$l->titre}}</a></h4>
-                                                <p><strong>Auteur :</strong> {{$l->auteur['nom']}} {{$l->auteur['prenom']}}</p>
-                                                <p><strong>Genre :</strong>  {{$l->genre['genre']}}</p>
-                                                <p><strong>Langue :</strong>  {{$l->langue}}</p>
-                                            </header>
-                                            <p>
-                                                {{$l->resume}}    
-                                            </p>
-                                            <div class="actions">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top">
-                                                            <i class="fa fa-shopping-cart mr-2"></i>    Demander
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                <div class="row my-4">
+                                    <div class="col-md-12">
+                                        @if(session()->has('error'))
+                                        <div class="alert alert-danger">
+                                            {{ session()->get('error') }}
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    @endif
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9 col-md-push-3">
+                                    <div class="books-gird">
+                                        <ul>
+                                            @foreach ($livres as $l)
+                                            <li>
+                                                <figure>
+                                                    <img src="{{ asset('livres/'.$l->image) }}" alt="Book">
+                                                    <figcaption>
+                                                        <p><strong>{{$l->titre}}</strong></p>
+                                                        <p><strong>Auteur : </strong>  {{$l->auteur['nom']}} {{$l->auteur['prenom']}}</p>
+                                                        <p><strong>Prix : </strong> <span class="badge badge-info">{{$l->prix}} DH</span></p>
+                                                    </figcaption>
+                                                </figure> 
+                                                <div class="single-book-box">
+                                                    <div class="post-detail">
+                                                        <header class="entry-header">
+                                                            <h3 class="entry-title">{{$l->titre}}</h3>
+                                                            <ul>
+                                                                <li><strong>Auteur :</strong> {{$l->auteur['nom']}} {{$l->auteur['prenom']}}</li>
+                                                                <li><strong>Genre :</strong> {{$l->genre['genre']}}</li>
+                                                            </ul>
+                                                        </header>
+                                                        <div class="entry-content">
+                                                            <p>{{$l->resume}}</p>
+
+                                                        </div>
+                                                        <footer class="entry-footer">
+                                                            @if ($l->qte > 1)
+                                                                <form action="{{url('/reservation')}}" method="POST">
+                                                                    @csrf
+                                                                    <input type="hidden" name="idlivre" value="{{$l->id}}">
+                                                                    <input type="hidden" name="iduser" value="{{ Auth::user()->id }}">
+                                                                    <input type="hidden" name="statut" value="Reservé">
+                                                                    <button type="submit" class="btn btn-info"><i class="fa fa-shopping-cart mr-2"></i>
+                                                                        Reservé Livre</a>
+                                                                </form>
+                                                            @else
+                                                                <a class="btn btn-danger" disabled><i class="fa fa-ban mr-2"></i>
+                                                                    Quantité Epuisé</a>
+                                                            @endif
+                                                        </footer>
+                                                    </div>
+                                                </div>                                       
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-md-pull-9">
+                                    <aside id="secondary" class="sidebar widget-area" data-accordion-group>
+                                        <div class="widget widget_related_search open" data-accordion>
+                                            <h4 class="widget-title" data-control>Rechercher Par :</h4>
+                                            <div data-content>
+                                                <div data-accordion>
+                                                    <h5 class="widget-sub-title" data-control>Auteur</h5>
+                                                    <div class="widget_categories" data-content>
+                                                        <ul>
+                                                            @foreach ($auteurs as $a)
+                                                                <li><a href="{{url('/livre/'.$a->id)}}">{{$a->nom}} {{$a->prenom}}</a></li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div data-accordion>
+                                                    <h5 class="widget-sub-title" data-control>Genre</h5>
+                                                    <div class="widget_categories" data-content>
+                                                        <ul>
+                                                            @foreach ($genres as $g)
+                                                                <li><a href="{{url('/livregenre/'.$g->id)}}">{{$g->genre}}</a></li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
                                             </div>
-                                        </figcaption>
-                                    </figure>                                                
-                                </li>
-                                @endforeach
-                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </aside>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </main>
+                </main>
+            </div>
         </div>
-    </div>
-    <!-- End: Products Section -->
+        <!-- End: Products Section -->
 @endsection

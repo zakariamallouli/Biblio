@@ -18,6 +18,10 @@ Route::get('/', function () {
 });
 
 Route::get('/livre', 'HomeController@listelivre')->name('listelivre')->middleware('verified');
+Route::get('/livre/{auteur?}', 'HomeController@livreparAuteur')->middleware('verified');
+Route::get('/livregenre/{genre?}', 'HomeController@livreparGenre')->middleware('verified');
+Route::post('/reservation', 'HomeController@reserve');
+Route::get('/mesemprunts', 'HomeController@liste')->middleware('verified');
 /******************************************Client Routes******************************************/
 
 

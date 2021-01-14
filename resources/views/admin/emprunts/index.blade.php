@@ -62,7 +62,7 @@
                   {{$a->livre['titre']}}
               </td>
               <td>
-                  {{$a->user['nom']}}
+                  {{$a->user['name']}}
               </td>              
               <td>
                 {{$a->date_emprunt}}
@@ -74,7 +74,7 @@
                 {{$a->statut}}
             </td>
               <td>
-                  <a href=" {{ route('home.emprunts.edit',$a->id) }} " class="btn btn-info btn-sm">Modifier</a>
+                  <a href=" {{ url('home.emprunts.edit',$a->id) }} " class="btn btn-info btn-sm">Modifier</a>
                   <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" 
                       class="btn btn-danger btn-sm">Supprimer</a>
                       <form method="post" action="{{ route('home.emprunts.destroy',$a->id) }}">

@@ -21,6 +21,7 @@
         <link href="{{ asset('css/mmenu.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('css/mmenu.positioning.css') }}" rel="stylesheet" type="text/css" />
 
+        
         <!-- Stylesheet -->
         <link href="{{ asset('style.css') }}" rel="stylesheet" type="text/css" />
 
@@ -58,12 +59,12 @@
                                                 @guest
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="{{ route('login') }}"><i class="fa fa-lock"></i>Login</a> |
-                                            @if (Route::has('register'))
-                                                    <a class="nav-link" href="{{ route('register') }}"><i class="fa fa-lock"></i>Register</a>
-                                                </li>
-                                            @endif
-                                            @else
-                                                <li class="nav-item dropdown">
+                                                @if (Route::has('register'))
+                                                        <a class="nav-link" href="{{ route('register') }}"><i class="fa fa-lock"></i>Register</a>
+                                                    </li>
+                                                @endif
+                                                @else
+                                                <li class="nav-item dropdown mx-auto">
                                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                                         <h5><i class="fa fa-user"></i>{{ Auth::user()->name }}</h5>
                                                     </a>
@@ -91,8 +92,8 @@
                                         <div class="navbar-header">
                                             <div class="navbar-brand">
                                                 <h1>
-                                                    <a href="index-2.html">
-                                                        <img src="images/libraria-logo-v2.png" alt="LIBRARIA" />
+                                                    <a href="/">
+                                                        <img src="{{asset('images/libraria-logo-v2.png')}}" alt="LIBRARIA" />
                                                     </a>
                                                 </h1>
                                             </div>
@@ -109,6 +110,7 @@
                                                 </li>
                                                 <li><a href="#">Services</a></li>
                                                 <li><a href="#">Contact</a></li>
+                                                <li><a href="{{url('/mesemprunts')}}">Mes Emprunts</a></li>
                                             </ul>
                                         </div>
                                     </div>

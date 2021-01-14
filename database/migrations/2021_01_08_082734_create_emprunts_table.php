@@ -19,8 +19,8 @@ class CreateEmpruntsTable extends Migration
             $table->foreign('idlivre')->references('id')->on('livres')->onDelete('cascade');
             $table->integer('iduser')->unsigned();
             $table->foreign('iduser')->references('id')->on('users')->onDelete('cascade');
-            $table->Date('date_emprunt');
-            $table->Date('date_retour');
+            $table->Date('date_emprunt')->nullable();
+            $table->Date('date_retour')->nullable();
             $table->String('statut');
             $table->timestamps();
         });

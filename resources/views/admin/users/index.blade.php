@@ -82,6 +82,7 @@
               </span>
             </td>
                 <td>
+                  
                     <a href=" {{ route('home.users.edit',$a->id) }} " class="btn btn-info btn-sm">Modifier</a>
                     <!--@can('delete-users')   -->
                     <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" 
